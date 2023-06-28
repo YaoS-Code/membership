@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    <div class="container">
+        <img src="/media/borui_logo1.svg" alt="borui logo" style="width: 200px;">
+        <form method="get">
+            <label for="name">{{ name }}</label>
+            <input type="text" name="name">
+            <input type="submit" name="action" value="submit">
+        </form>
+        <ul>
+            {% for info in mylist %}
+                <li>
+                    {{ info.id }} - {{ info.name }} - {{ info.age }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</body>
+</html>
