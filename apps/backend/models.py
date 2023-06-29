@@ -6,6 +6,7 @@ from django.utils.timezone import now
 class UserInfo(models.Model):
     first_name = models.CharField(verbose_name="first_name", max_length=16, db_index=True)
     last_name = models.CharField(verbose_name="last_name", max_length=16, db_index=True)
+    password = models.CharField(verbose_name="password", max_length=16)
     dob = models.DateField(verbose_name="dob")
     phone = models.CharField(verbose_name="phone", max_length=16)
     email = models.CharField(verbose_name="email", max_length=50, unique=True, db_index=True)
@@ -24,6 +25,8 @@ class Membership(models.Model):
     credit = models.IntegerField(verbose_name="credit", default=0)
     expired_date = models.IntegerField(verbose_name='expired_date', default=12)
 
+    def __str__(self):
+        return "Membership Level:" + f" {self.level} " + self.note + "\r\n"
 
 class MemberPayment(models.Model):
     payment_amount = models.IntegerField(verbose_name="payment_amount")

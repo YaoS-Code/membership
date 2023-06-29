@@ -2,7 +2,8 @@ from django.urls import path
 from apps.backend import views
 
 urlpatterns = [
-    path('', views.backend)
+    path('', views.index)
+
 ]
 
 app_name = 'backend'

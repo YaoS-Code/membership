@@ -5,7 +5,7 @@ from django.urls import reverse
 
 # Create your views here.
 def home(request):
-    return render(request, 'layout.html')
+    return render(request, 'web/index.html')
 
 
 def login(request):
@@ -19,7 +19,7 @@ def login(request):
         ],
 
     }
-    return render(request, 'index.html', context)
+    return render(request, 'web/index.html', context)
 
 
 def logout(request):
