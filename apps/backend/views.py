@@ -15,3 +15,10 @@ def index(request):
     print(obj2)
     print(obj3)
     return HttpResponse()
+
+
+def login(request):
+    return render(request, 'backend/login.html')
+
+def signup(request):
+    return render(request, 'backend/signup.html')
