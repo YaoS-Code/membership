@@ -1,6 +1,5 @@
 # Create your models here.
 from django.db import models
-from django.utils.timezone import now
 
 
 class UserInfo(models.Model):
@@ -28,6 +27,7 @@ class Membership(models.Model):
     def __str__(self):
         return "Membership Level:" + f" {self.level} " + self.note + "\r\n"
 
+
 class MemberPayment(models.Model):
     payment_amount = models.IntegerField(verbose_name="payment_amount")
     payment_date = models.DateField(verbose_name="payment_date")
@@ -52,7 +52,7 @@ class ConsumeItem(models.Model):
     note = models.TextField(verbose_name='note', blank=True, null=True)
 
 
-class serviceRecord(models.Model):
+class ServiceRecord(models.Model):
     start_date = models.DateField(verbose_name="start_date")
     client_info = models.TextField(verbose_name="client_info")
     consumeItem_id = models.ForeignKey(verbose_name="consumeItem_id", to="ConsumeItem", on_delete=models.CASCADE)

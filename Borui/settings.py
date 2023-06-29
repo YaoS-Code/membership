@@ -89,11 +89,11 @@ WSGI_APPLICATION = 'Borui.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'Borui_Education',
-        'USER': 'root',
-        'PASSWORD': 'yaosong1216',
-        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-        'PORT': '3306',
+        'NAME': os.getenv('DATABASE_NAME'),
+        'USER': os.getenv('DATABASE_USERNAME'),
+        'PASSWORD': os.getenv('DATABASE_PASSWORD'),
+        'HOST': os.getenv('DATABASE_URL'),   # Or an IP Address that your DB is hosted on
+        'PORT': os.getenv('DATABASE_PORT'),
     }
 }
 
