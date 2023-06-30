@@ -3,18 +3,18 @@ from django.db import models
 
 
 class UserInfo(models.Model):
-    first_name = models.CharField(verbose_name="first_name", max_length=16, db_index=True)
-    last_name = models.CharField(verbose_name="last_name", max_length=16, db_index=True)
-    password = models.CharField(verbose_name="password", max_length=16)
-    dob = models.DateField(verbose_name="dob")
-    phone = models.CharField(verbose_name="phone", max_length=16)
+    first_name = models.CharField(verbose_name="first_name", max_length=16, db_index=True, blank=True, null=True)
+    last_name = models.CharField(verbose_name="last_name", max_length=16, db_index=True, blank=True, null=True)
+    password = models.CharField(verbose_name="password", max_length=16, blank=True, null=True)
+    dob = models.DateField(verbose_name="dob", blank=True, null=True)
+    phone = models.CharField(verbose_name="phone", max_length=16, blank=True, null=True)
     email = models.CharField(verbose_name="email", max_length=50, unique=True, db_index=True)
     wechat = models.CharField(verbose_name="wechat", max_length=50, blank=True, null=True)
     address = models.DateField(verbose_name="address", max_length=255, blank=True, null=True)
-    register_date = models.DateField(verbose_name="register_date")
+    register_date = models.DateField(verbose_name="register_date", blank=True, null=True)
     deleted = models.BooleanField(verbose_name="deleted", default=0)
     membership_id = models.ForeignKey(verbose_name='membership_id', to="Membership", on_delete=models.SET_DEFAULT,
-                                      default=0)
+                                      default=2)
 
 
 class Membership(models.Model):

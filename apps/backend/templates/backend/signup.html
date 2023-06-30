@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,11 +9,12 @@
 <body>
     <div class="box">
         <span class="borderLine"></span>
-        <form action="">
+        <form method="post">
+            {% csrf_token %}
             <h2>Sign Up</h2>
             <div class="inputBox">
-                <input type="text" required = "required" name="username">
-                <span>Username</span>
+                <input type="email" required = "required" name="email">
+                <span>Email</span>
                 <i></i>
             </div>
             <div class="inputBox">
