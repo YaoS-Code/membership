@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from apps.backend import models
 
 
@@ -22,12 +22,12 @@ def signup(request):
         password2 = request.POST['password2']  # 从表单中获取密码
 
         if password != password2:
-            return render(request, 'backend/signup.html')
+            messages.success(request, 'Wrong Username or Password. Please Try Again!')
+            return redirect('backend:signup')
 
         user = models.UserInfo.objects.create(email=email, password=password)
         # Add success message
         messages.success(request, 'Registration successful. Please log in.')
-
-        return render(request, 'backend/login.html')
+        return redirect('backend:login')  # Redirect to login page
 
     return render(request, 'backend/signup.html')

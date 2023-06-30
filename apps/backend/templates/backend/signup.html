@@ -10,6 +10,14 @@
     <div class="box">
         <span class="borderLine"></span>
         <form method="post">
+
+            {% if messages %}
+              <ul class="messages">
+                {% for message in messages %}
+                  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
             {% csrf_token %}
             <h2>Sign Up</h2>
             <div class="inputBox">
@@ -34,5 +42,15 @@
             <input type="submit" value="Login">
         </form>
     </div>
+    <script>
+        // Optionally, you can add JavaScript code to automatically hide the messages after a certain time
+        setTimeout(function() {
+            var messages = document.getElementsByClassName('messages');
+            for (var i = 0; i < messages.length; i++) {
+                messages[i].style.display = 'none';
+            }
+        }, 5000);  // Hide messages after 5 seconds
+    </script>
 </body>
+
 </html>
